@@ -1,0 +1,6 @@
+language: python
+install:
+  - pip install pygame
+# command to run tests
+script:
+  - pytest

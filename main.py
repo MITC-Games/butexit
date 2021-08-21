@@ -1,71 +1,19 @@
-import pygame
-import sys
+from tkinter import *
 
-# initializing the constructor
-pygame.init()
+window = Tk()
 
-# screen resolution
-res = (256,256)
+window.title("ButExit-Rewritten (beta)")
 
-# opens up a window
-screen = pygame.display.set_mode(res)
+window.geometry('512x512')
 
-# white color
-color = (255,255,255)
+def clicked():
 
-# light shade of the button
-color_light = (170,170,170)
+    exit()
 
-# dark shade of the button
-color_dark = (100,100,100)
+photo = PhotoImage(file = r"./boton.png")
 
-# stores the width of the
-# screen into a variable
-width = screen.get_width()
+btn = Button(window, text="Click Me", command=clicked, image=photo)
 
-# stores the height of the
-# screen into a variable
-height = screen.get_height()
+btn.grid(column=1, row=0)
 
-# defining a font
-smallfont = pygame.font.SysFont('Corbel',35)
-
-# rendering a text written in
-# this font
-text = smallfont.render('Salir' , True , color)
-
-while True:
-	
-	for ev in pygame.event.get():
-		
-		if ev.type == pygame.QUIT:
-			pygame.quit()
-			
-		#checks if a mouse is clicked
-		if ev.type == pygame.MOUSEBUTTONDOWN:
-			
-			#if the mouse is clicked on the
-			# button the game is terminated
-			if width/2 <= mouse[0] <= width/2+100 and height/2 <= mouse[1] <= height/2+40:
-				pygame.quit()
-				
-	# fills the screen with a color
-	screen.fill((60,25,60))
-	
-	# stores the (x,y) coordinates into
-	# the variable as a tuple
-	mouse = pygame.mouse.get_pos()
-	
-	# if mouse is hovered on a button it
-	# changes to lighter shade
-	if width/2 <= mouse[0] <= width/2+140 and height/2 <= mouse[1] <= height/2+40:
-		pygame.draw.rect(screen,color_light,[width/2,height/2,140,40])
-		
-	else:
-		pygame.draw.rect(screen,color_dark,[width/2,height/2,140,40])
-	
-	# superimposing the text onto our button
-	screen.blit(text , (width/2+50,height/2))
-	
-	# updates the frames of the game
-	pygame.display.update()
+window.mainloop()

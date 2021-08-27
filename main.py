@@ -4,7 +4,7 @@ window = Tk()
 
 window.title("ButExit-Rewritten (beta)")
 
-window.geometry('512x512')
+window.geometry('200x200')
 
 def clicked():
 
@@ -12,8 +12,8 @@ def clicked():
 
 # photo = PhotoImage(file = r"./boton.png") |, image=photo|
 
-btn = Button(window, text="Exit", command=clicked)
+btn = Button(window, text="Exit", command=clicked, height= 200, width=200).pack()
 
-btn.grid(column=1, row=0)
+#btn.grid(column=1, row=0)
 
 window.mainloop()
